@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Spring Boot Sample Site</title>
+
+<meta name="description" content="共通metaタグ">
+
+<!-- 共通のJS,CSSを読み込み -->
+<link rel="stylesheet" href="/css/common.css">
+<script src="/js/common.js"></script>
+</head>
+<body>
+	<header layout:fragment="header">共通ヘッダ</header>
+
+	<div layout:fragment="contents"></div>
+
+	<footer layout:fragment="footer">共通フッタ</footer>
+</body>
+</html>

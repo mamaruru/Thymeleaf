@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <head th:replace="common/base :: common_header(~{::title},~{::link})">
+  <title>従業員一覧</title>
+  <link rel="stylesheet" th:href="@{/css/mycss.css}">
+</head>
+<body>
+
+<div th:replace="common/header :: common_header"></div>  <!-- 追加 -->
+
+<h1>Hello, Spring Boot!</h1>
+
+<div th:object="${employeeListForm}">
+	<table>
+		<caption>
+			<strong>従業員検索</strong>
+		</caption>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NAME</th>
+				<th>EMAIL</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="emp : *{employees}">
+			    <td th:text="${emp.id}"></td>
+			    <td th:text="${emp.name}"></td>
+			    <td th:text="${emp.email}"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<form th:action="@{/detail}" th:object="${employeeForm.employee}" method="post">
+    <p>Id: <input required type="text" th:field="*{id}" />
+       <em th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Name Error</em></p>
+    <p>Name: <input required type="text" th:field="*{name}" />
+       <em th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</em></p>
+    <p>Email: <input required type="email" th:field="*{email}" />
+       <em th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</em></p>
+    <p><input type="submit" value="Submit" /></p>
+
+</form>
+
+<div th:replace="common/footer :: common_footer"></div>  <!-- 追加 -->
+
+</body>
+</html>

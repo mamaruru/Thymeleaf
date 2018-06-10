@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout3}">
+<head>
+<title>個別ページタイトル</title>
+
+<meta name="description" content="個別metaタグ">
+
+<!-- 個別ページ特有のhead要素 -->
+<link rel="stylesheet" href="/css/page3.css">
+<script src="/js/page3.js"></script>
+</head>
+
+<body>
+
+	<div>この要素は無視される</div>
+
+	<div>
+		<div layout:fragment="contents">ページコンテンツ３</div>
+	</div>
+</body>
+</html>
